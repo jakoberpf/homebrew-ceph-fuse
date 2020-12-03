@@ -16,7 +16,7 @@ class CephFuse < Formula
   depends_on "boost" => :build
   depends_on "llvm" => :build
   depends_on "nss"
-  depends_on "python@2"
+  depends_on "python@3"
   depends_on "yasm"
 
   patch :DATA
@@ -30,7 +30,7 @@ class CephFuse < Formula
     ENV["PKG_CONFIG_PATH"] = "#{Formula["nss"].opt_lib}/pkgconfig"
     ENV["PYTHONPATH"] = "#{Formula["cython"].opt_libexec}/lib/python3.7/site-packages"
     args = %W[
-      -DPYTHON_INCLUDE_DIR=#{Formula["python@2"].prefix}/Frameworks/Python.framework/Headers
+      -DPYTHON_INCLUDE_DIR=#{Formula["python@3"].prefix}/Frameworks/Python.framework/Headers
       -DDIAGNOSTICS_COLOR=always
       -DOPENSSL_ROOT_DIR=#{Formula["openssl"].prefix}
       -DBOOST_ROOT=#{Formula["boost"].prefix}
